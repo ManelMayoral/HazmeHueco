@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
         this.res = response
         console.log(this.res)
         if (this.res.resultat=='true'){
+          
           this.router.navigate(['/homeres']);
           this.serveiHH.getidres(this.res.id);
         } else{
