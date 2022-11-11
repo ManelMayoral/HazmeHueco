@@ -1,0 +1,32 @@
+<form>
+  <div>
+    <ion-title>Registro - Log</ion-title>
+  </div>
+  <ion-item lines="full" id="itemdni">
+    <ion-label position="floating">DNI</ion-label>
+    <ion-input type="text" name="dni" required [(ngModel)]="dni"></ion-input>
+  </ion-item>
+  <ion-item lines="full" id="itemname">
+    <ion-label position="floating">Nombre Completo</ion-label>
+    <ion-input type="text" name="name" required [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item lines="full" id="itememail">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" required [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item lines="full" id="itempassword">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" name="password" required [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <ion-item lines="full" id="itempassword2">
+    <ion-label position="floating">Repetir Contraseña</ion-label>
+    <ion-input type="password" name="password2" required [(ngModel)]="password2"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="this.error==true">
+    <ion-label style="color: red; text-align: center;">Malardo</ion-label>
+  </ion-item>
+  <ion-title id="iderror" style="display: none;" color="danger"></ion-title>
+  <div style="text-align: center !important;">
+    <ion-button block type="submit" (click)="registrar();">Registrase</ion-button>
+  </div>
+</form>

@@ -1,0 +1,7 @@
+{
+  "name": "HazmeHueco",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
