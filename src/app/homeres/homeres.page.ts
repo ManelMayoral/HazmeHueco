@@ -10,18 +10,26 @@ import { Router } from '@angular/router';
 })
 export class HomeresPage implements OnInit {
 
+  nomreserva :any;
   res :any
+  conf :any
   error = false
+  id : any;
 
   constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router  ) { }
 
   ngOnInit() {
     this.getreservas();
+    this.serveiHH.getidres(this.id);
+
   }
 
  getreservas(){
   this.serveiHH.getreservas().subscribe((response) => {
     this.res = response
+    this.id = this.res.restaurantID
+    this.nomreserva = this.res.nomComplet
+    this.conf = this.res.confirmada
     console.log(this.res)
     if (this.res==null){
       this.error = true;
@@ -46,4 +54,9 @@ export class HomeresPage implements OnInit {
     pagina2.style.display = "block";
   }
 }
+
+  getidres(id:any){
+    this.id = id
+    return id
+  }
 }

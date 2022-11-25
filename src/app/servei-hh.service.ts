@@ -45,7 +45,7 @@ export class ServeiHHService {
   }
 
   getreservas(){
-    let url = `http://hazmehuecoionic.hopto.org/llistarreservas.php?idres=${this.id}`
+    let url = `http://hazmehuecoionic.hopto.org/llistareservesrestaurants.php?idres=${this.id}`
     return this.http.get(url)
   }
 

@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   email='';
   res :any;
   error = false;
-  constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router  ) { }
+  constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router) { }
 
   ngOnInit() {
   }
