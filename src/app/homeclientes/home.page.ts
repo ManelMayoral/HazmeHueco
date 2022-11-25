@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ServeiHHService } from '../servei-hh.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +10,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  res: any;
 
+  constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router ) {}
+
+  ngOnInit() {
+    this.serveiHH.getrestaurants().subscribe((response) =>{
+      this.res = response;
+      console.log(this.res);
+    });
+  }
 
   clickSegment(pagina) {
     //console.log(pagina);
@@ -27,4 +38,6 @@ export class HomePage {
       pagina2.style.display = "block";
     }
   }
+
+
 }

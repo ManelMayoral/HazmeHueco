@@ -1,30 +1,117 @@
-<ion-card>
-  <ion-card-header>
-    <ion-title>Me gustan las abejas</ion-title>
-  </ion-card-header>
-</ion-card>
+<ion-content id="pagina1" style="display: block;">
 
-<ion-card>
-  <ion-card-header>
-    <ion-title>Nombre Restaurante</ion-title>
-  </ion-card-header>
-  <ion-card-content>
-    <table>
-      <tr>
-        <td>
-          <ion-text>Descripcion Restaurante</ion-text>
-        </td>   
-      </tr>
-      <tr>
-        <td>
-          <ion-text><a href="mondongo">Link a pagina web del restaurante</a></ion-text>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <ion-button>Hacer Reserva</ion-button>
-        </td>
-      </tr>
-    </table>
-  </ion-card-content>
-</ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>La granjeta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Quantitat de personas: 5</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hora: 19:30 11/12/2000</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Reserva Confirmada <ion-icon name="checkmark-outline"></ion-icon></h2>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>La granjeta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Quantitat de personas: 5</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hora: 19:30 11/12/2000</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>Reserva Confirmada <ion-icon name="close-outline"></ion-icon></h2>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>
+
+<ion-content id="pagina2" style="display: none;">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>La granjeta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Vero officia consequuntur eius rerum impedit vitae quidem voluptates modi
+      nobis,
+      quos iusto laboriosam officiis,
+      temporibus corporis totam atque incidunt, iste fugit?
+    </ion-card-content>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Web</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Opiniones</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Tipus Menjar: Japones
+        </ion-label>
+      </ion-item>
+      <ion-button shape="round" expand="block" size="large">Reserva</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>La granjeta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Vero officia consequuntur eius rerum impedit vitae quidem voluptates modi
+      nobis,
+      quos iusto laboriosam officiis,
+      temporibus corporis totam atque incidunt, iste fugit?
+    </ion-card-content>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Web</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="link-outline"></ion-icon>
+        <ion-label>Opiniones</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Tipus Menjar: Japones
+        </ion-label>
+      </ion-item>
+      <ion-button shape="round" expand="block" size="large">Reserva</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-segment value="default">
+    <ion-segment-button value="default" (click)="clickSegment(1)">
+      <ion-label>Reservas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment" (click)="clickSegment(2)">
+      <ion-label>Restaurantes</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>

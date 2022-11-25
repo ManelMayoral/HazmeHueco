@@ -49,6 +49,12 @@ export class ServeiHHService {
     return this.http.get(url)
   }
 
+  getrestaurants(){
+    let url =`http://hazmehuecoionic.hopto.org/llistarestaurants.php`
+
+    return this.http.get(url)
+  }
+
 
 
 }
