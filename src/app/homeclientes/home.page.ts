@@ -14,7 +14,10 @@ export class HomePage {
 
   constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router ) {}
 
+
+  
   ngOnInit() {
+    
     this.serveiHH.getrestaurants().subscribe((response) =>{
       this.res = response;
       console.log(this.res);
@@ -39,5 +42,12 @@ export class HomePage {
     }
   }
 
-
+  ferReserva(idRes){
+    console.log(idRes);
+    let x  = (<HTMLInputElement>document.getElementById("time"+idRes)).value;
+    console.log(x);
+    let x2  = (<HTMLInputElement>document.getElementById("qtt"+idRes)).value;
+    console.log(x2);
+    //this.router.navigate(['/reserva',nomRes]);
+  }
 }

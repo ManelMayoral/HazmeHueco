@@ -10,7 +10,8 @@ export class ServeiHHService {
 
   loginat = false
   autenticado = false;
-  id = ""
+  idres = ""
+  idcli = ""
   constructor(private router:Router, private http: HttpClient, public navCtrl: NavController) { }
 
   getloginat(){
@@ -40,12 +41,15 @@ export class ServeiHHService {
   }
 
   getidres(id:any){
-    this.id = id
-    return id
+    this.idres = id
   }
 
-  getreservas(){
-    let url = `http://hazmehuecoionic.hopto.org/llistareservesrestaurants.php?idres=${this.id}`
+  getidcli(id:any){
+    this.idcli = id
+  }
+
+  getreservasres(){
+    let url = `http://hazmehuecoionic.hopto.org/llistareservesrestaurants.php?idres=${this.idres}`
     return this.http.get(url)
   }
 
@@ -54,6 +58,22 @@ export class ServeiHHService {
 
     return this.http.get(url)
   }
+
+  confirmarreserva(id){
+    console.log(id)
+    let url =`http://hazmehuecoionic.hopto.org/confreserva.php?id=${id}`
+    console.log(url)
+    return this.http.get(url) 
+  }
+
+  cancelarreserva(id){
+    console.log(id)
+    let url =`http://hazmehuecoionic.hopto.org/cancelreserva.php?id=${id}`
+    console.log(url)
+    return this.http.get(url)
+  }
+
+
 
 
 

@@ -13,6 +13,8 @@ export class LoginPage implements OnInit {
   esclient=true;
   nomres='';
   pwd='';
+  idres = '';
+  idcli = '';
   email='';
   res :any;
   error = false;
@@ -25,8 +27,10 @@ export class LoginPage implements OnInit {
     if(xesclient){
       this.serveiHH.consultaclient(this.email, this.pwd).subscribe((response) => {
         this.res = response
+        this.idcli = this.res.id 
         console.log(this.res)
         if (this.res.resultat=='true'){
+          sessionStorage.setItem("idusr",this.idcli)
           this.router.navigate(['/homeclientes']);
         } else{
           this.error = true;
@@ -36,9 +40,10 @@ export class LoginPage implements OnInit {
     }else{
       this.serveiHH.consultarestaurant(this.nomres, this.pwd).subscribe((response) => {
         this.res = response
+        this.idres = this.res.id
         console.log(this.res)
         if (this.res.resultat=='true'){
-          
+          sessionStorage.setItem("idres",this.idres)
           this.router.navigate(['/homeres']);
           this.serveiHH.getidres(this.res.id);
         } else{

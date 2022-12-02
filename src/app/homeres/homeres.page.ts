@@ -14,25 +14,48 @@ export class HomeresPage implements OnInit {
   res :any
   conf :any
   error = false
-  id : any;
+  idrestaurant : any;
+  idreserva : any;
 
   constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router  ) { }
 
   ngOnInit() {
+    this.serveiHH.getidres(sessionStorage.getItem("idres"))
     this.getreservas();
-    this.serveiHH.getidres(this.id);
 
   }
 
  getreservas(){
-  this.serveiHH.getreservas().subscribe((response) => {
+  this.serveiHH.getreservasres().subscribe((response) => {
     this.res = response
-    this.id = this.res.restaurantID
+    this.idrestaurant = this.res.restaurantID
     this.nomreserva = this.res.nomComplet
     this.conf = this.res.confirmada
     console.log(this.res)
     if (this.res==null){
       this.error = true;
+    }
+  })
+ }
+
+ confreserva(idreserva:any){
+   this.serveiHH.confirmarreserva(idreserva).subscribe((response)=>{
+     this.res = response
+     if(this.res=="true"){
+      this.ngOnInit();
+     } else{
+       console.log("error")
+     }
+   })
+  }
+
+ cancreserva(idreserva:any){
+  this.serveiHH.cancelarreserva(idreserva).subscribe((response)=>{
+    this.res = response
+    if(this.res=="true"){
+      this.ngOnInit();
+    } else{
+      console.log("error")
     }
   })
  }
@@ -55,8 +78,4 @@ export class HomeresPage implements OnInit {
   }
 }
 
-  getidres(id:any){
-    this.id = id
-    return id
-  }
 }

@@ -17,7 +17,7 @@
           <h2><ion-icon name="checkmark-outline"></ion-icon></h2>
         </ion-label>
       </ion-item>
-      <ion-button shape="round" expand="block" size="large" color="danger">Cancelar Reserva</ion-button>
+      <ion-button shape="round" expand="block" size="large" color="danger" (click)="cancreserva(item.idreserva)">Cancelar Reserva</ion-button>
     </ion-card-content>
   </ion-card>
 </div> 
@@ -42,7 +42,7 @@
             <h2><ion-icon name="close-outline"></ion-icon></h2>
           </ion-label>
         </ion-item>
-        <ion-button shape="round" expand="block" size="large" color="success">Confirmar Reserva</ion-button>
+        <ion-button shape="round" expand="block" size="large" color="success" (click)="confreserva(item.idreserva)">Confirmar Reserva</ion-button>
       </ion-card-content>
     </ion-card>
   </div> 
