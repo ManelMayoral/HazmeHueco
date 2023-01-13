@@ -53,6 +53,11 @@ export class ServeiHHService {
     return this.http.get(url)
   }
 
+  getreservascli(){
+    let url = `http://hazmehuecoionic.hopto.org/llistareservesclients.php?idcli=${this.idcli}`
+    return this.http.get(url)
+  }
+
   getrestaurants(){
     let url =`http://hazmehuecoionic.hopto.org/llistarestaurants.php`
 
@@ -60,21 +65,18 @@ export class ServeiHHService {
   }
 
   confirmarreserva(id){
-    console.log(id)
     let url =`http://hazmehuecoionic.hopto.org/confreserva.php?id=${id}`
-    console.log(url)
     return this.http.get(url) 
   }
 
   cancelarreserva(id){
-    console.log(id)
     let url =`http://hazmehuecoionic.hopto.org/cancelreserva.php?id=${id}`
-    console.log(url)
     return this.http.get(url)
   }
 
-
-
-
+  insertreserva(iduser, qttpersones , hora, idrestaurant){
+    let url=`http://hazmehuecoionic.hopto.org/insertreserva.php?iduser=${iduser}&qttpersones=${qttpersones}&horares=${hora}&idres=${idrestaurant}`
+    return this.http.get(url)
+  }
 
 }

@@ -11,17 +11,23 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   res: any;
+  resclient: any;
 
   constructor(private http: HttpClient, public serveiHH : ServeiHHService,private router:Router ) {}
 
-
-  
   ngOnInit() {
-    
+    this.serveiHH.getidcli(sessionStorage.getItem("idusr"));
+
     this.serveiHH.getrestaurants().subscribe((response) =>{
       this.res = response;
       console.log(this.res);
     });
+
+    this.serveiHH.getreservascli().subscribe((response) =>{
+     this.resclient = response;
+     console.log(this.resclient); 
+    });
+
   }
 
   clickSegment(pagina) {
@@ -42,12 +48,27 @@ export class HomePage {
     }
   }
 
+  cancreserva(idreserva:any){
+    this.serveiHH.cancelarreserva(idreserva).subscribe((response)=>{
+      this.res = response
+    })
+    if(this.res=="true"){
+      this.ngOnInit();
+    } else{
+      console.log("error")
+    }
+   }
+
   ferReserva(idRes){
-    console.log(idRes);
-    let x  = (<HTMLInputElement>document.getElementById("time"+idRes)).value;
-    console.log(x);
-    let x2  = (<HTMLInputElement>document.getElementById("qtt"+idRes)).value;
-    console.log(x2);
-    //this.router.navigate(['/reserva',nomRes]);
+    let hora  = (<HTMLInputElement>document.getElementById("time"+idRes)).value;
+    let qtt  = (<HTMLInputElement>document.getElementById("qtt"+idRes)).value;
+    console.log("Hora: "+hora, "Qtt: "+qtt)
+    if(hora.length>5 && parseInt(qtt) > 0 && parseInt(qtt) <= 15){
+      this.serveiHH.insertreserva(sessionStorage.getItem("idusr"),qtt,hora,idRes).subscribe((response)=>{})
+      this.ngOnInit();
+    }
+    else {
+      alert("Introdueix una hora vàlida i una quantitat entre 1 i 15")
+    }
   }
 }

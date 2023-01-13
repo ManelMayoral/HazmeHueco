@@ -41,23 +41,17 @@ export class HomeresPage implements OnInit {
  confreserva(idreserva:any){
    this.serveiHH.confirmarreserva(idreserva).subscribe((response)=>{
      this.res = response
-     if(this.res=="true"){
-      this.ngOnInit();
-     } else{
-       console.log("error")
-     }
+     
    })
+   this.ngOnInit();
   }
 
  cancreserva(idreserva:any){
   this.serveiHH.cancelarreserva(idreserva).subscribe((response)=>{
     this.res = response
-    if(this.res=="true"){
-      this.ngOnInit();
-    } else{
-      console.log("error")
-    }
+    
   })
+  this.ngOnInit();
  }
 
  clickSegment(pagina) {
