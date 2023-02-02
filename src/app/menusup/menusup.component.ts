@@ -14,4 +14,7 @@ export class MenusupComponent implements OnInit {
 
   ngOnInit() {}
     
+  gologin(){
+    this.router.navigate(['/login']);
+  }
   }

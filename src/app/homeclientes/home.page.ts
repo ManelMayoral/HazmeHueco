@@ -20,12 +20,12 @@ export class HomePage {
 
     this.serveiHH.getrestaurants().subscribe((response) =>{
       this.res = response;
-      console.log(this.res);
+
     });
 
     this.serveiHH.getreservascli().subscribe((response) =>{
      this.resclient = response;
-     console.log(this.resclient); 
+
     });
 
   }
@@ -40,6 +40,7 @@ export class HomePage {
 
       pagina1.style.display = "block";
       pagina2.style.display = "none";
+      location.reload();
     } else if (pagina == 2) {
       //console.log("restaurantes");
 
@@ -52,20 +53,17 @@ export class HomePage {
     this.serveiHH.cancelarreserva(idreserva).subscribe((response)=>{
       this.res = response
     })
-    if(this.res=="true"){
-      this.ngOnInit();
-    } else{
-      console.log("error")
-    }
+
+    //location.reload();
    }
 
   ferReserva(idRes){
     let hora  = (<HTMLInputElement>document.getElementById("time"+idRes)).value;
     let qtt  = (<HTMLInputElement>document.getElementById("qtt"+idRes)).value;
-    console.log("Hora: "+hora, "Qtt: "+qtt)
     if(hora.length>5 && parseInt(qtt) > 0 && parseInt(qtt) <= 15){
       this.serveiHH.insertreserva(sessionStorage.getItem("idusr"),qtt,hora,idRes).subscribe((response)=>{})
       this.ngOnInit();
+      //location.reload();
     }
     else {
       alert("Introdueix una hora vàlida i una quantitat entre 1 i 15")

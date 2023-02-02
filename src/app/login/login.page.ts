@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       this.serveiHH.consultaclient(this.email, this.pwd).subscribe((response) => {
         this.res = response
         this.idcli = this.res.id 
-        console.log(this.res)
+
         if (this.res.resultat=='true'){
           sessionStorage.setItem("idusr",this.idcli)
           this.router.navigate(['/homeclientes']);
@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
       this.serveiHH.consultarestaurant(this.nomres, this.pwd).subscribe((response) => {
         this.res = response
         this.idres = this.res.id
-        console.log(this.res)
+
         if (this.res.resultat=='true'){
           sessionStorage.setItem("idres",this.idres)
           this.router.navigate(['/homeres']);

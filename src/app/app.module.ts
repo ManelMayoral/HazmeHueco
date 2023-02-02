@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MenusupComponent } from './menusup/menusup.component';
 
+import {ModclienteComponent} from './modcliente/modcliente.component'
+import {ModrestauranteComponent} from './modrestaurante/modrestaurante.component'
+
 
 @NgModule({
   declarations: [AppComponent,MenusupComponent],

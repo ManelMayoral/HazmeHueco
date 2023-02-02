@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'homeres',
     loadChildren: () => import('./homeres/homeres.module').then( m => m.HomeresPageModule)
-  },
+  }
 ];
 
 @NgModule({

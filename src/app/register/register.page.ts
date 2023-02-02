@@ -52,7 +52,7 @@ export class RegisterPage {
 
       this.serveiHH.registraruser(this.dni,this.password,this.email,this.name).subscribe((response) => {
         this.res = response
-        console.log(this.res)
+
         if (this.res.resultat=='true'){
           this.router.navigate(['/login']);
         } else{

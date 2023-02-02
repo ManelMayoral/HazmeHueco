@@ -12,70 +12,70 @@ export class ServeiHHService {
   autenticado = false;
   idres = ""
   idcli = ""
-  constructor(private router:Router, private http: HttpClient, public navCtrl: NavController) { }
+  constructor(private router: Router, private http: HttpClient, public navCtrl: NavController) { }
 
-  getloginat(){
+  getloginat() {
     return this.loginat
   }
 
-  sendloginat(loginado:any){
+  sendloginat(loginado: any) {
     this.loginat = loginado
   }
 
-  consultaclient(email:any, pwd:any){
-    let url =`http://hazmehuecoionic.hopto.org/comprovarusuaris.php?email=${email}&pwd=${pwd}`
+  consultaclient(email: any, pwd: any) {
+    let url = `http://hazmehuecoionic.hopto.org/comprovarusuaris.php?email=${email}&pwd=${pwd}`
 
     return this.http.get(url)
   }
 
-  consultarestaurant(nomres:any,pwd:any){
-    let url =`http://hazmehuecoionic.hopto.org/comprovarrestaurant.php?nomres=${nomres}&pwd=${pwd}`
+  consultarestaurant(nomres: any, pwd: any) {
+    let url = `http://hazmehuecoionic.hopto.org/comprovarrestaurant.php?nomres=${nomres}&pwd=${pwd}`
 
     return this.http.get(url)
   }
 
-  registraruser(dni:any,password:any,email:any,name:any){
+  registraruser(dni: any, password: any, email: any, name: any) {
     let url = `http://hazmehuecoionic.hopto.org/afegirusuari.php?dni=${dni}&password=${password}&email=${email}&nom=${name}`
-      
+
     return this.http.get(url)
   }
 
-  getidres(id:any){
+  getidres(id: any) {
     this.idres = id
   }
 
-  getidcli(id:any){
+  getidcli(id: any) {
     this.idcli = id
   }
 
-  getreservasres(){
+  getreservasres() {
     let url = `http://hazmehuecoionic.hopto.org/llistareservesrestaurants.php?idres=${this.idres}`
     return this.http.get(url)
   }
 
-  getreservascli(){
+  getreservascli() {
     let url = `http://hazmehuecoionic.hopto.org/llistareservesclients.php?idcli=${this.idcli}`
     return this.http.get(url)
   }
 
-  getrestaurants(){
-    let url =`http://hazmehuecoionic.hopto.org/llistarestaurants.php`
+  getrestaurants() {
+    let url = `http://hazmehuecoionic.hopto.org/llistarestaurants.php`
 
     return this.http.get(url)
   }
 
-  confirmarreserva(id){
-    let url =`http://hazmehuecoionic.hopto.org/confreserva.php?id=${id}`
-    return this.http.get(url) 
-  }
-
-  cancelarreserva(id){
-    let url =`http://hazmehuecoionic.hopto.org/cancelreserva.php?id=${id}`
+  confirmarreserva(id) {
+    let url = `http://hazmehuecoionic.hopto.org/confreserva.php?id=${id}`
     return this.http.get(url)
   }
 
-  insertreserva(iduser, qttpersones , hora, idrestaurant){
-    let url=`http://hazmehuecoionic.hopto.org/insertreserva.php?iduser=${iduser}&qttpersones=${qttpersones}&horares=${hora}&idres=${idrestaurant}`
+  cancelarreserva(id) {
+    let url = `http://hazmehuecoionic.hopto.org/cancelreserva.php?id=${id}`
+    return this.http.get(url)
+  }
+
+  insertreserva(iduser, qttpersones, hora, idrestaurant) {
+    let url = `http://hazmehuecoionic.hopto.org/insertreserva.php?iduser=${iduser}&qttpersones=${qttpersones}&horares=${hora}&idres=${idrestaurant}`
     return this.http.get(url)
   }
 
