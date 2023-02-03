@@ -41,7 +41,7 @@ export class HomeresPage implements OnInit {
   confreserva(idreserva: any) {
     this.serveiHH.confirmarreserva(idreserva).subscribe((response) => {
       this.res = response
-
+      location.reload();
     })
     this.ngOnInit();
     //location.reload();
@@ -50,7 +50,7 @@ export class HomeresPage implements OnInit {
   cancreserva(idreserva: any) {
     this.serveiHH.cancelarreserva(idreserva).subscribe((response) => {
       this.res = response
-
+      location.reload();
     })
     this.ngOnInit();
     //location.reload();
@@ -73,6 +73,10 @@ export class HomeresPage implements OnInit {
       pagina1.style.display = "none";
       pagina2.style.display = "block";
     }
+  }
+  
+  gologin(){
+    this.router.navigate(['/login']);
   }
 
 }

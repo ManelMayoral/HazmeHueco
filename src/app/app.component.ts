@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  navbarShow: boolean;
   constructor() {}
+
+  ngOnInit() {
+    this.navbarShow = !(window.location.pathname == '/login') && !(window.location.pathname == '/register') && !(window.location.pathname == '/');
+  }
 }

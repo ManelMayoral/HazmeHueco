@@ -9,10 +9,12 @@ import { ServeiHHService } from '../servei-hh.service';
   styleUrls: ['./menusup.component.scss'],
 })
 export class MenusupComponent implements OnInit {
+  navbarShow: boolean;
 
   constructor(private router:Router , public serveiHH : ServeiHHService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
     
   gologin(){
     this.router.navigate(['/login']);
